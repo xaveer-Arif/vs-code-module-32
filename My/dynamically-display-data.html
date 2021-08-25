@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hellow</h1>
+    <ul id="userID">
+
+    </ul>
+    <button onclick="users()">click</button>
+
+    <script>
+    function users(){
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())
+        .then(data => innerFunction(data))
+    }
+    function innerFunction(data){
+        // console.log(entry)
+        const ul = document.getElementById('userID')
+        
+        for(const user of data){
+            // console.log(user.name)
+            const li = document.createElement('li');
+            li.innerText= `name: ${user.name} , email:${user.email}`;
+            ul.appendChild(li)
+
+        }
+    }
+    // uporer function ta ke dynamically akta ul er vhitore li create kore apply korbo
+
+    </script>
+</body>
+</html>
